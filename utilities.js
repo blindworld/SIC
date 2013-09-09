@@ -1,3 +1,9 @@
+/**
+ * @license SIC/XE using Angular.js
+ * (c) 2013 Geoffrey Kimble
+ * License: MIT
+ */
+
 /*
  Utility functions for the assembler.
  */
