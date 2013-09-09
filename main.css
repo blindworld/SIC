@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+textarea, pre, .object-code {
+    font-family: Courier, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+input[type=text] {
+    width: 120px;
+}
+
+body > div {
+    margin: auto;
+    width: 900px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+div.data-structure thead {
+    text-align: left;
+    background: linear-gradient(to bottom, #DDDDDD, #AAAAAA);
+    border: 1px solid #999999;
+}
+
+button {
+    line-height: 16px;
+    margin: 0;
+    margin-right: 7px;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #87ceeb, #555580);
+    border: 1px solid #999999;
+    padding: 2px 5px;
+    color: #ffffff;
+}
+
+div.header {
+    line-height: 24px;
+    padding: 0px 10px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #CCCCCC, #999999);
+}
+
+div.content {
+    padding: 10px;
+}
+
+div.block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.assembly.content {
+    vertical-align: top;
+    width: 506px;
+    overflow: hidden;
+}
+
+textarea {
+    width: 500px;
+    height: 400px;
+    background-color: transparent;
+}
+
+div.data-structure {
+    border: 1px solid #999999;
+    border-radius: 3px;
+    vertical-align: top;
+    margin-bottom: 10px;
+    margin-right: 7px;
+}
+
+div.data-structure table {
+    border-collapse: collapse;
+}
+
+div.data-structure thead th, div.data-structure tbody td {
+    padding: 5px;
+}
+
+pre.text-behind {
+    margin-top: 3px;
+    margin-left: 3px;
+    color: white;
+    z-index: -1;
+    width: 500px;
+    height: 400px;
+    margin-bottom: -403px;
+    position: relative;
+}
+
+pre.text-behind span.highlight {
+    background-color: #FFFF33;
+}
+
+.red {
+    color: #FF0000;
+}
+
+.validation {
+    padding: 10px;
+    border: 2px solid #ff0000;
+}
+
+.highlightable-textarea {
+    overflow: hidden;
+}

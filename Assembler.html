@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIC/XE Assembler</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="angular-sanitize.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="directives.js"></script>
+    <script type="text/javascript" src="testdata.js"></script>
+    <script type="text/javascript" src="utilities.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body ng-app="sicAssembler">
+<div ng-controller="mainCtrl">
+    <div class="block">
+        <div class="data-structure">
+            <div class="header">Assembly Code</div>
+            <div class="assembly content">
+                <div style="margin-bottom:10px ">
+                    Select Test:
+                    <select type="text" ng-model="test" ng-options="t.name for t in tests"></select>
+                    <input id="XE" type="checkbox" style="margin-left:80px" ng-model="isXeEnabled">
+                    <label for="XE">Use SIC/XE instruction set</label>
+                </div>
+                <highlightable-textarea data-text="assembly" data-highlight-index='highlightIndex' data-selected='selected'></highlightable-textarea>
+                <div>
+                    <div class="validation" ng-if="errorMessages.length>0">
+                        <div ng-repeat="error in errorMessages">
+                            {{ error.message }}
+                        </div>
+                    </div>
+                    <button ng-click="Assemble()">Assemble</button>
+                    <button ng-click="RunCurrentPass()">Run {{ currentPass }} Pass</button>
+                    <button ng-click="AssembleLine()">Assemble Line</button>
+                </div>
+            </div>
+        </div>
+        <div class="data-structure" ng-if="object.length>0">
+            <div class="header">
+                Object Code
+            </div>
+            <div class="content">
+                <div class="object-code" ng-bind-html="displayObject()"></div>
+            </div>
+        </div>
+        <div class="data-structure" ng-if="intermediate.length>0">
+            <div class="header">Intermediate Data</div>
+            <div class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Line</th>
+                        <th>Location</th>
+                        <th>Source</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="line in intermediate">
+                        <td>{{ line.index }}</td>
+                        <td>{{ line.location }}</td>
+                        <td>{{ line.source }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="data-structure">
+            <table>
+                <thead>
+                    <th colspan="2">Location Counter (LOCCTR)</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ locationCounter }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data-structure" ng-if="baseReg >= 0">
+            <table>
+                <thead>
+                    <th colspan="2">Base Register</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ baseReg }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data-structure">
+            <table>
+                <thead>
+                    <th colspan="2">Symbol Table (SYMTAB)</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="symbol in symbols">
+                        <td>{{symbol.label}}</td>
+                        <td>{{symbol.address}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data-structure" ng-if="literals.length>0">
+            <table>
+                <thead>
+                    <th colspan="4">Literal Table (LITTAB)</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="literal in literals">
+                        <td>{{ literal.name }}</td>
+                        <td>{{ literal.value }}</td>
+                        <td>{{ literal.length }}</td>
+                        <td>{{ literal.address }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
