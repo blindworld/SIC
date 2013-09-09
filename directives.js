@@ -1,3 +1,9 @@
+/**
+ * @license SIC/XE using Angular.js
+ * (c) 2013 Geoffrey Kimble
+ * License: MIT
+ */
+
 /*
  Text area that highlights a single row in the background.
  */
