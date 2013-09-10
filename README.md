@@ -25,3 +25,7 @@ In SIC/XE Mode, BASE, NOBASE, EQU, and LTORG directives have been added.
 A modification record will be added for each non-relative address.
 The EQU directive supports addition and subtraction.
 Each command supports * to represent the current location counter.
+
+This program was written for a class project, I will not be doing any future development with this project.
+
+(C) 2013 Geoffrey Kimble
